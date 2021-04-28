@@ -6,13 +6,6 @@ const read = readline.createInterface({
   output: process.stdout
 })
 
-// API URL, two pieces 
-// -> user inputs location which is pasted in the middle
-const api_url_start = "http://api.openweathermap.org/data/2.5/weather?q="
-const api_url_end = "&units=metric&APPID=cc2928d46d101dbdb1a0e1b6b9af5e54"
-
-let location = ""
-
 // OUTPUT, prints a formatted snippet from the JSON
 function printFormatJSON(json, location) {
   console.log(
@@ -26,7 +19,7 @@ function printFormatJSON(json, location) {
 // FETCH, requests the data from API in JSON format
 // ,then outputs some.
 async function getWeather(location) {
-  fetch(api_url_start + location + api_url_end)
+  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=cc2928d46d101dbdb1a0e1b6b9af5e54`)
     .then(res => res.json())
     .then(json => printFormatJSON(json, location))
 }
