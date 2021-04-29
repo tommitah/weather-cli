@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/tommitah/webdev/weather-cli/cs/WeatherNator9000/WeatherNator9000.csproj": {}
+    "/home/tommitah/webdev/weather-cli/cs/cs.csproj": {}
   },
   "projects": {
-    "/home/tommitah/webdev/weather-cli/cs/WeatherNator9000/WeatherNator9000.csproj": {
+    "/home/tommitah/webdev/weather-cli/cs/cs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/tommitah/webdev/weather-cli/cs/WeatherNator9000/WeatherNator9000.csproj",
-        "projectName": "WeatherNator9000",
-        "projectPath": "/home/tommitah/webdev/weather-cli/cs/WeatherNator9000/WeatherNator9000.csproj",
+        "projectUniqueName": "/home/tommitah/webdev/weather-cli/cs/cs.csproj",
+        "projectName": "cs",
+        "projectPath": "/home/tommitah/webdev/weather-cli/cs/cs.csproj",
         "packagesPath": "/home/tommitah/.nuget/packages/",
-        "outputPath": "/home/tommitah/webdev/weather-cli/cs/WeatherNator9000/obj/",
+        "outputPath": "/home/tommitah/webdev/weather-cli/cs/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/tommitah/.nuget/NuGet/NuGet.Config"
