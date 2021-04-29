@@ -1,5 +1,5 @@
 // MODULES 
-// api key hidden from version control
+// api key hidden from version control, api-key.js exports two-piece module.
 const key = require("./api-key.js")
 const fetch = require("node-fetch")
 const readline = require('readline')
