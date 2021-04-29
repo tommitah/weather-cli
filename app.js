@@ -24,7 +24,7 @@ async function getWeather(location) {
   fetch(`${key.API_KEY_START}${location}${key.API_KEY_END}`)
     .then(res => res.json())
     .then(json => printFormatJSON(json, location))
-    .catch(function(err) {
+    .catch(err => {
       console.log(`${location} is not a valid search argument.\n${err}`)
     })
 }
