@@ -1,5 +1,5 @@
 api-key.js
 APIKey.cs
-/bin
-/obj
+bin/
+obj/
 cs.csproj

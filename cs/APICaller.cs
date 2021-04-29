@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace WeatherNator9000 {
   class APICaller {
+    // thread safe singleton.
     private static readonly APICaller instance = new APICaller();
 
     static APICaller() {}
