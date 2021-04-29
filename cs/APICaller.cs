@@ -22,9 +22,9 @@ namespace WeatherNator9000 {
     // Pings the API, reads the response and returns a WeatherData object from GetWeatherData
     public static async Task<WeatherData> GetForecast(string url) {
       try {
-        using(HttpClient client = new HttpClient()) {
-          using(HttpResponseMessage res = await client.GetAsync(url)) {
-            using(HttpContent content = res.Content) {
+        using(var client = new HttpClient()) {
+          using(var res = await client.GetAsync(url)) {
+            using(var content = res.Content) {
               var data = await content.ReadAsStringAsync();
               if (content != null) {
                 // dynamic -> resolved at runtime! NOT efficient.

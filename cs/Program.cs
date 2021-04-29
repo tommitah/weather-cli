@@ -7,18 +7,23 @@ namespace WeatherNator9000 {
       MainAsync(args).GetAwaiter().GetResult();
     }
 
+    // MainAsync, so we can call async methods.
     static async Task MainAsync(string[] args) {
       var apiKey = new APIKey();
       string location;
 
       Console.WriteLine("SEND LOCATION: ");
       location = Console.ReadLine();
+      if(location == "") {
+        Console.WriteLine("is not a valid search argument.");
+        return;
+      }
 
-      WeatherData weather = await APICaller.GetForecast(
+      var weather = await APICaller.GetForecast(
           apiKey.UrlStart + location + apiKey.UrlEnd
         );
 
-      Console.Write( $"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
+      Console.Write($"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
     }
   }
 }
