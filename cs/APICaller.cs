@@ -18,6 +18,7 @@ namespace WeatherNator9000 {
       }
     }
 
+    // Pings the API, reads the response and returns a WeatherData object from GetWeatherData
     public static async Task<WeatherData> GetForecast(string url) {
       try {
         using(HttpClient client = new HttpClient()) {
@@ -26,13 +27,7 @@ namespace WeatherNator9000 {
               var data = await content.ReadAsStringAsync();
               if (content != null) {
                 // dynamic -> resolved at runtime! NOT efficient.
-                var dataJson = JsonConvert.DeserializeObject<dynamic>(data);
-                var weatherData = new WeatherData(
-                    main:  $"{dataJson.weather[0].main}",
-                    temp:  $"{dataJson.main.temp}",
-                    humty: $"{dataJson.main.humidity}"
-                  );
-                return weatherData;
+                return GetWeatherData(data);
               }
               else Console.WriteLine("ooop no data");
               return null;
@@ -41,8 +36,18 @@ namespace WeatherNator9000 {
         }
       } catch(Exception exception) {
         Console.WriteLine(exception.Message.ToString());
-        throw exception;
+        throw;
       }
+    }
+
+    // Deserializes the response string into Json and returns a WeatherData object
+    private static WeatherData GetWeatherData(string jsonStr) {
+      var dataJson = JsonConvert.DeserializeObject<dynamic>(jsonStr);
+      return new WeatherData(
+          main:  $"{dataJson.weather[0].main}",
+          temp:  $"{dataJson.main.temp}",
+          humty: $"{dataJson.main.humidity}"
+        );
     }
   }
 }
