@@ -1,4 +1,6 @@
 // MODULES 
+// api key hidden from version control
+const key = require("./api-key.js")
 const fetch = require("node-fetch")
 const readline = require('readline')
 const read = readline.createInterface({
@@ -19,7 +21,7 @@ function printFormatJSON(json, location) {
 // FETCH, requests the data from API in JSON format
 // ,then outputs some.
 async function getWeather(location) {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=cc2928d46d101dbdb1a0e1b6b9af5e54`)
+  fetch(`${key.API_KEY_START}${location}${key.API_KEY_END}`)
     .then(res => res.json())
     .then(json => printFormatJSON(json, location))
 }
