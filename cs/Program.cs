@@ -18,13 +18,13 @@ namespace WeatherNator9000 {
       Console.WriteLine("SEND LOCATION: ");
       location = Console.ReadLine();
 
-      var weather = await APICaller.GetForecast(
+      WeatherData weather = await APICaller.GetForecast(
           apiKey.UrlStart + location + apiKey.UrlEnd
         );
 
-      Console.WriteLine(weather.Main);
-      Console.WriteLine(weather.Temperature);
-      Console.WriteLine(weather.Humidity);
+      //Console.WriteLine(weather.Main);
+      //Console.WriteLine(weather.Temperature);
+      //Console.WriteLine(weather.Humidity);
 
       Console.Write( $"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
     }

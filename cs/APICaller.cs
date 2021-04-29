@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace WeatherNator9000 {
@@ -24,11 +25,12 @@ namespace WeatherNator9000 {
             using(HttpContent content = res.Content) {
               var data = await content.ReadAsStringAsync();
               if (content != null) {
-                var dataJson = JObject.Parse(data);
+                // dynamic -> resolved at runtime! NOT efficient.
+                var dataJson = JsonConvert.DeserializeObject<dynamic>(data);
                 var weatherData = new WeatherData(
-                    main:  $"{dataJson["weather[0].main"]}",
-                    temp:  $"{dataJson["main.temp"]}",
-                    humty: $"{dataJson["main.humidity"]}"
+                    main:  $"{dataJson.weather[0].main}",
+                    temp:  $"{dataJson.main.temp}",
+                    humty: $"{dataJson.main.humidity}"
                   );
                 return weatherData;
               }
@@ -38,7 +40,7 @@ namespace WeatherNator9000 {
           }
         }
       } catch(Exception exception) {
-        Console.WriteLine(exception);
+        Console.WriteLine(exception.Message.ToString());
         throw exception;
       }
     }
