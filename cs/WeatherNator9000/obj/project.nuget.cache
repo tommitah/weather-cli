@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "18LC1U9qZxo6sRLXeR7/iKzHhUJV6163qOeA8DMZLZtWDSXwhYuGsSoTY7EDcJcjNexQBbT3nKa6fqbA5znGgw==",
+  "success": true,
+  "projectFilePath": "/home/tommitah/webdev/weather-cli/cs/WeatherNator9000/WeatherNator9000.csproj",
+  "expectedPackageFiles": [
+    "/home/tommitah/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/home/tommitah/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
