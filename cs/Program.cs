@@ -23,9 +23,7 @@ namespace WeatherNator9000 {
           apiKey.UrlStart + location + apiKey.UrlEnd
         );
 
-      if(weather != null)
-        Console.Write($"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
-      else Console.WriteLine("Nothing here.");
+      Console.Write($"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
     }
   }
 }

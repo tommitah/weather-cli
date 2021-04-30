@@ -19,19 +19,16 @@ namespace WeatherNator9000 {
       }
     }
 
-    // Pings the API, reads the response and returns a WeatherData object from GetWeatherData
+    // Pings the API, reads the response and returns a WeatherData struct from GetWeatherData
     public static async Task<WeatherData> GetForecast(string url) {
       try {
         using(var client = new HttpClient()) {
           using(var res = await client.GetAsync(url)) {
             using(var content = res.Content) {
               var data = await content.ReadAsStringAsync();
-              if (content != null) {
-                // dynamic -> resolved at runtime! NOT efficient.
-                return GetWeatherData(data);
-              }
-              else Console.WriteLine("ooop no data");
-              return null;
+
+              // dynamic -> resolved at runtime! NOT efficient.
+              return GetWeatherData(data);
             }
           }
         }
@@ -41,7 +38,7 @@ namespace WeatherNator9000 {
       }
     }
 
-    // Deserializes the response string into Json and returns a WeatherData object
+    // Deserializes the response string into Json and returns a WeatherData struct.
     private static WeatherData GetWeatherData(string jsonStr) {
       var dataJson = JsonConvert.DeserializeObject<dynamic>(jsonStr);
       return new WeatherData(
