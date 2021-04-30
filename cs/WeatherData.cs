@@ -1,6 +1,7 @@
 using System;
 
-namespace WeatherNator9000 {
+namespace WeatherNator9000 
+{
   public readonly struct WeatherData {
     public string Main { get; }
     public string Temperature { get; }

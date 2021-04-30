@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace WeatherNator9000 {
+namespace WeatherNator9000 
+{
   class APICaller {
     // thread safe singleton.
     private static readonly APICaller instance = new APICaller();

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace WeatherNator9000 {
+namespace WeatherNator9000
+{
   class Program {
     static void Main(string[] args) {
       MainAsync(args).GetAwaiter().GetResult();
@@ -19,9 +20,7 @@ namespace WeatherNator9000 {
         return;
       }
 
-      var weather = await APICaller.GetForecast(
-          apiKey.UrlStart + location + apiKey.UrlEnd
-        );
+      var weather = await APICaller.GetForecast($"{apiKey.url.Start}{location}{apiKey.url.End}");
 
       Console.Write($"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
     }
