@@ -2,4 +2,6 @@
 
 ### Terminal app that outputs weather from openweathermap api
 
-to run - dotnet run
+C#: to run - dotnet run
+
+JS: to run - node app.js
