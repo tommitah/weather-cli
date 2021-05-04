@@ -27,7 +27,6 @@ namespace WeatherNator9000
           using(var res = await client.GetAsync(url)) {
             using(var content = res.Content) {
               var data = await content.ReadAsStringAsync();
-
               // dynamic -> resolved at runtime! NOT efficient.
               return GetWeatherData(data);
             }
