@@ -9,7 +9,7 @@ const read = readline.createInterface({
 })
 
 // OUTPUT, prints a formatted snippet from the JSON
-function printFormatJSON(json, location) {
+printFormatJSON = (json, location) => {
   console.log(
     `Weather in ${location}:
       \t${json.weather[0].main}
@@ -20,7 +20,7 @@ function printFormatJSON(json, location) {
 
 // FETCH, requests the data from API in JSON format
 // ,then outputs some.
-async function getWeather(location) {
+getWeather = async (location) => {
   fetch(`${key.API_KEY_START}${location}${key.API_KEY_END}`)
     .then(res => res.json())
     .then(json => printFormatJSON(json, location))
