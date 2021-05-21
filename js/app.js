@@ -9,9 +9,9 @@ const read = readline.createInterface({
 })
 
 // OUTPUT, prints a formatted snippet from the JSON
-printFormatJSON = (json, location) => {
+printFormatJSON = (json, city_name) => {
   console.log(
-    `Weather in ${location}:
+    `Weather in ${city_name}:
       \t${json.weather[0].main}
       \tTemperature: ${json.main.temp} Celsius
       \tHumidity: ${json.main.humidity} %`
@@ -20,18 +20,29 @@ printFormatJSON = (json, location) => {
 
 // FETCH, requests the data from API in JSON format
 // ,then outputs some.
-getWeather = async (location) => {
-  fetch(`${key.API_KEY_START}${location}${key.API_KEY_END}`)
-    .then(res => res.json())
-    .then(json => printFormatJSON(json, location))
-    .catch(err => {
-      console.log(`${location} is not a valid search argument.\n${err}`)
+getWeather = async (type) => {
+  if (type === 1) {
+    read.question('SEND LOCATION: ', (city_name) => {
+      fetch(`${key.API_KEY_START}${city_name}${key.API_KEY_APPID}`)
+        .then(res => res.json())
+        .then(json => printFormatJSON(json, city_name))
+        .catch(err => {
+          console.log(`${city_name} is not a valid search argument.\n${err}`)
+        })
     })
+  } else {
+    console.log("Forecasts have not yet been implemented.")
+    //read.question('SEND LOCATION: ', (city_name) => {
+      //fetch(`${key.API_KEY_START}${city_name}${key.API_KEY_APPID}`)
+        //.then(res => res.json())
+        //.then(json => printFormatJSON(json, ))
+    //})
+  }
 }
 
-// the 'main'
 // the readline module reads user input from cli and makes the API call.
-read.question('SEND LOCATION: ', (answer) => {
-  getWeather(answer)
+read.question('(1). Current\n(2). Forecast', (answer) => {
+  if (answer === 1 || answer === 2) getWeather(answer)
+  console.log('Wrong choice motherfucker.')
   read.close()
 })
