@@ -20,29 +20,18 @@ printFormatJSON = (json, city_name) => {
 
 // FETCH, requests the data from API in JSON format
 // ,then outputs some.
-getWeather = async (type) => {
-  if (type === 1) {
-    read.question('SEND LOCATION: ', (city_name) => {
-      fetch(`${key.API_KEY_START}${city_name}${key.API_KEY_APPID}`)
-        .then(res => res.json())
-        .then(json => printFormatJSON(json, city_name))
-        .catch(err => {
-          console.log(`${city_name} is not a valid search argument.\n${err}`)
-        })
+getWeather = async (city_name) => {
+  fetch(`${key.API_KEY_START}${city_name}${key.API_KEY_APPID}`)
+    .then(res => res.json())
+    .then(json => printFormatJSON(json, city_name))
+    .catch(err => {
+      console.log(`${city_name} is not a valid search argument.\n${err}`)
     })
-  } else {
-    console.log("Forecasts have not yet been implemented.")
-    //read.question('SEND LOCATION: ', (city_name) => {
-      //fetch(`${key.API_KEY_START}${city_name}${key.API_KEY_APPID}`)
-        //.then(res => res.json())
-        //.then(json => printFormatJSON(json, ))
-    //})
-  }
 }
 
+
 // the readline module reads user input from cli and makes the API call.
-read.question('(1). Current\n(2). Forecast', (answer) => {
-  if (answer === 1 || answer === 2) getWeather(answer)
-  console.log('Wrong choice motherfucker.')
+read.question('SEND LOCATION: ', (answer) => {
+  getWeather(answer)
   read.close()
 })
