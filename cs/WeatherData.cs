@@ -1,5 +1,3 @@
-using System;
-
 namespace WeatherNator9000 
 {
   public readonly struct WeatherData {
