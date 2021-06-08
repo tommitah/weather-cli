@@ -25,7 +25,7 @@ namespace WeatherNator9000
             }
 
             var weather = await APICaller.GetForecast(
-                $"{apiKey.url.Start}{location}{apiKey.url.End}"
+                $"{apiKey.url.Start}{location}{apiKey.url.APPID}"
             );
 
             Console.Write($"Weather in {location}: \n\t{weather.Main} \n\t{weather.Temperature} Celsius \n\t{weather.Humidity} %");
