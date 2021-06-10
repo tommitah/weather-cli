@@ -1,15 +1,18 @@
 // MODULES 
 // api key hidden from version control, api-key.js exports two-piece module.
-const key = require("./api-key.js")
-const fetch = require("node-fetch")
-const readline = require('readline')
+
+import { API_KEY_START, API_KEY_APPID } from "./api-key.js"
+//const key = require("api-jey.js")
+import fetch from "node-fetch"
+//const readline = require('readline')
+import readline from "readline"
 const read = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 })
 
 // OUTPUT, prints a formatted snippet from the JSON
-printFormatJSON = (json, city_name) => {
+const printFormatJSON = (json, city_name) => {
   console.log(
     `Weather in ${city_name}:
       \t${json.weather[0].main}
@@ -20,8 +23,8 @@ printFormatJSON = (json, city_name) => {
 
 // FETCH, requests the data from API in JSON format
 // ,then outputs some.
-getWeather = async (city_name) => {
-  fetch(`${key.API_KEY_START}${city_name}${key.API_KEY_APPID}`)
+const getWeather = async (city_name) => {
+  fetch(`${API_KEY_START}${city_name}${API_KEY_APPID}`)
     .then(res => res.json())
     .then(json => printFormatJSON(json, city_name))
     .catch(err => {
