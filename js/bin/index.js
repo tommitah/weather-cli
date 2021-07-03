@@ -6,7 +6,7 @@
 import { API_KEY_START, API_KEY_APPID } from "./api-key.js"
 import fetch from "node-fetch"
 
-// CITY NAME, get the "flag" the user input after call.
+// CITY NAME, get the "flag" user inputs after call.
 const args_length = process.argv.length
 
 // OUTPUT, prints a formatted snippet from the JSON
