@@ -1,0 +1,19 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "ez weather cli tool for openweather",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommitah/weather-cli.git"
+  },
+  "author": "Tommi Tahvanainen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tommitah/weather-cli/issues"
+  },
+  "homepage": "https://github.com/tommitah/weather-cli#readme"
+}
